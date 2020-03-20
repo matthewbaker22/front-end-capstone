@@ -6,6 +6,10 @@ import AlbumList from './albums/AlbumsList'
 import AlbumForm from './albums/AlbumForm'
 import Photos from './albums/AlbumPhotos'
 
+//Login & Register
+import Login from './auth/Login'
+import Register from './auth/Register'
+
 const ApplicationView = (props) => {
     return (
         <>
@@ -20,6 +24,12 @@ const ApplicationView = (props) => {
             }}/>
             <Route path="/albums/new" render={props => {
                 return <AlbumForm {...props}/>
+            }}/>
+            <Route path="/login" render={props => {
+                return <Login {...props} />
+            }}/>
+            <Route path="/register" render={props => {
+                return <Register {...props}/>
             }}/>
         </>
     )
