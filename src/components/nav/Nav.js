@@ -5,7 +5,6 @@ import { withRouter, Link } from "react-router-dom"
 
 const NavBar = props => {
     const activeUser = sessionStorage.getItem("Active Id")
-    console.log(activeUser)
     const clearUser = () => {
         sessionStorage.clear()
     }

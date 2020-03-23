@@ -1,13 +1,21 @@
 import React from 'react'
-import { Card, CardBody } from 'reactstrap'
+import { Link } from "react-router-dom"
+import { Card, CardBody, Button } from 'reactstrap'
 
 const AlbumsCard = (props) => {
+
     return (
         <div>
             <Card>
                 <CardBody>
-                    <p>{props.album.name}</p>
-                    <p>{props.album.description}</p>
+                    <Link to={"/albums/" + props.album.id}>
+                        <p>{props.album.name}</p>
+                        <p>{props.album.description}</p>
+                    </Link>
+                    <Button color="danger" type="button" onClick={() =>
+                        props.deleteAlbum(props.album.id)}>
+                        Delete Album
+                    </Button>
                 </CardBody>
             </Card>
         </div>

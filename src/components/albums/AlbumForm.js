@@ -3,7 +3,7 @@ import AlbumManager from '../../modules/AlbumsManager'
 import { Button, Form, FormGroup, Label, Input, Card, CardBody } from 'reactstrap'
 
 const AlbumForm= props => {
-    const [album, setAlbum] = useState({name: "", description: "", userId: "", photoId: ""})
+    const [album, setAlbum] = useState({name: "", description: "", userId: ""})
     const [isLoading, setIsLoading] = useState(false)
 
     const handleFieldChange = evt => {
@@ -20,7 +20,8 @@ const AlbumForm= props => {
         evt.preventDefault()
 
         const newAlbum = {...album}
-        // newAlbum.userId = parseInt(sessionStorage.getItem("Active Id"))
+        newAlbum.userId = parseInt(sessionStorage.getItem("Active Id"))
+        console.log(newAlbum)
         setIsLoading(true)
         AlbumManager.post(newAlbum)
             .then(() => props.history.push("/albums"))

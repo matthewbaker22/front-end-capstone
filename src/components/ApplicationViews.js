@@ -4,7 +4,9 @@ import Home from './home/Home'
 import Albums from './albums/AlbumsCard'
 import AlbumList from './albums/AlbumsList'
 import AlbumForm from './albums/AlbumForm'
-import Photos from './albums/AlbumPhotos'
+import PhotoCard from './albums/photos/PhotoCard'
+import PhotoList from './albums/photos/PhotoList'
+import Cloudinary from './albums/photos/PhotoCloudinary'
 
 //Login & Register
 import Login from './auth/Login'
@@ -19,9 +21,6 @@ const ApplicationView = (props) => {
             <Route exact path ="/albums" render={props => {
                 return <AlbumList {...props}/>
             }}/>
-            <Route path="/albums/1" render={props => {
-                return <Photos />
-            }}/>
             <Route path="/albums/new" render={props => {
                 return <AlbumForm {...props}/>
             }}/>
@@ -31,6 +30,16 @@ const ApplicationView = (props) => {
             <Route path="/register" render={props => {
                 return <Register {...props}/>
             }}/>
+            {/* <Route path="/albums/:albumId(\d+)" render={props => {
+                return <PhotoCard {...props}/>
+            }}/> */}
+            <Route path="/albums/:albumId(\d+)" render={props => {
+                return <PhotoList {...props}/>
+            }}/>
+            <Route path="/albums/photo/new" render={props => {
+                return <Cloudinary {...props}/>
+            }}/>
+
         </>
     )
 }

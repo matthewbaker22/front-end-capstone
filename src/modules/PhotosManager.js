@@ -2,19 +2,19 @@ const url = "http://localhost:5002"
 
 export default {
     getAll() {
-        return fetch(`${url}/albums?userId=${parseInt(sessionStorage.getItem("Active Id"))}`).then(resp => resp.json())
+        return fetch(`${url}/photos`).then(resp => resp.json())
     },
-    post(newArticle) {
-        return fetch(`${url}/albums`, {
+    addNewPhoto(newPhoto) {
+        return fetch(`${url}/photos`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newArticle)
+            body: JSON.stringify(newPhoto)
         }).then(resp => resp.json())
     },
     delete(id) {
-        return fetch(`${url}/albums/${id}`, {
+        return fetch(`${url}/photos/${id}`, {
             method: "DELETE"
         }).then(resp => resp.json())
     }

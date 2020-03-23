@@ -7,40 +7,49 @@ import AlbumsManager from '../../modules/AlbumsManager'
 const AlbumList = (props) => {
     const [albums, setAlbums] = useState([])
 
+    
+    const deleteAlbum = (id) => {
+        AlbumsManager.delete(id).then(() =>
+            AlbumsManager.getAll().then(setAlbums)
+        )
+    }
+
     const getAlbums = () => {
         return AlbumsManager.getAll().then(albumsFromAPI => {
             setAlbums(albumsFromAPI)
-            console.log(albumsFromAPI)
         })
     }
+
+    
 
     useEffect(() => {
         getAlbums()
     }, [])
-
-    
 
     return (
         <>
             <section>
                 <Button color="primary" type="button" className="btn" onClick={() => {
                     props.history.push("albums/new")
-                }}>Create Album</Button>
-                
-                <Link className="album-link" to="/albums/1">
-                    <Card>
-                        {albums.map(album => (
-                            <AlbumsCard 
-                                key={album.id}
-                                album={album}
-                                {...props}
-                            />
-                        ))}
-                    </Card> 
-                </Link> 
+                }}>Create Album
+                </Button>
             </section>
+            <div>
+                {albums.map(album => (
+                    
+                        <AlbumsCard 
+                            key={album.id}
+                            album={album}
+                            deleteAlbum={deleteAlbum}
+                            {...props}
+                        />
+                    
+                ))}
+            </div>   
         </>
     )
 }
 
 export default AlbumList
+
+
