@@ -3,6 +3,7 @@ import AlbumsCard from './AlbumsCard'
 import { Button, Input, Card } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import AlbumsManager from '../../modules/AlbumsManager'
+import './AlbumCard.css'
 
 const AlbumList = (props) => {
     const [albums, setAlbums] = useState([])
@@ -22,6 +23,8 @@ const AlbumList = (props) => {
 
     
 
+    
+
     useEffect(() => {
         getAlbums()
     }, [])
@@ -34,7 +37,7 @@ const AlbumList = (props) => {
                 }}>Create Album
                 </Button>
             </section>
-            <div>
+            <div className="album-flex">
                 {albums.map(album => (
                     
                         <AlbumsCard 

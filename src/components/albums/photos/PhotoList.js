@@ -8,17 +8,12 @@ const PhotoList = props => {
     const [photos, setPhotos] = useState([])
 
     const getPhotos = () => {
-        return PhotosManager.getAll().then(photosFromAPI => {
+        return PhotosManager.getAllForAlbum(props.match.params.albumId).then(photosFromAPI => {
             setPhotos(photosFromAPI)
         })
     }
 
-    const deletePhoto = (id) => {
-        console.log(id)
-        PhotosManager.delete(id).then(() =>
-            PhotosManager.getAll().then(setPhotos)
-        )
-    }
+    
 
     useEffect(() => {
         getPhotos()
@@ -28,15 +23,18 @@ const PhotoList = props => {
         <div>
             <div>
                 <Button onClick={() => {
-                    props.history.push("/albums/photo/new")
+                    props.history.push(`/albums/${props.match.params.albumId}/photo/new`)
                 }}>Add New Photo</Button>
+                <Button color="info" onClick={() => {
+                    props.history.push("/albums")
+                }}>Back to albums</Button>
             </div>
-            <div>
+            <div className="photo-flex">
                 {photos.map(photo => (
                     <PhotosCard
                         key={photo.id}
                         photo={photo}
-                        deletePhoto={deletePhoto}
+                        getPhotos={getPhotos}
                         {...props}
                     />
                 ))}

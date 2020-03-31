@@ -10,7 +10,6 @@ const Login = props => {
         const stateToChange = {...credentials}
         stateToChange[evt.target.id] = evt.target.value
         setCredentials(stateToChange)
-        console.log("handle field change")
     }
 
     const handleLogin = evt => {
@@ -19,15 +18,13 @@ const Login = props => {
             window.alert("Please input a username and email")
         } else {
             LoginManager.getAll().then(users => {
-                console.log("hello")
-                if (users.find(user => user.username === credentials.username) && users.find(user => user.email === credentials.email)) {
+                if (users.find(user => user.username === credentials.username) && (users.find(user => user.email === credentials.email))) {
                     const user = users.find(user => user.username === credentials.username)
 
                     sessionStorage.setItem(
                         "Active Id",
                         JSON.stringify(user.id)
                     )
-                    console.log("Should be pushing to home")
                     props.history.push("/home")
                 } else {
                     window.alert("Invalid username or email")

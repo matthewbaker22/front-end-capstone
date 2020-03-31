@@ -1,0 +1,30 @@
+header {
+    background-color: #333;
+    font-size: larger;
+    font-weight: 500;
+}
+
+nav ul {
+    display: flex;
+    padding: 0;
+}
+
+nav li {
+    text-align: center;
+    list-style-type: none;
+    flex: 1;
+}
+
+.nav-link {
+    color: #007cff;
+}
+
+.nav-link:hover {
+    color: rgb(191, 39, 39);
+    text-shadow: 1px 1px 10px red;
+}
+
+.app-name {
+    padding-top: 5px;
+    color: white;
+}

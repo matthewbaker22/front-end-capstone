@@ -21,7 +21,6 @@ const AlbumForm= props => {
 
         const newAlbum = {...album}
         newAlbum.userId = parseInt(sessionStorage.getItem("Active Id"))
-        console.log(newAlbum)
         setIsLoading(true)
         AlbumManager.post(newAlbum)
             .then(() => props.history.push("/albums"))

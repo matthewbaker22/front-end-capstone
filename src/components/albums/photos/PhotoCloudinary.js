@@ -16,15 +16,17 @@ const Cloudinary = (props) => {
 
     const postNewImage = evt => {
         evt.preventDefault()
+        console.log(photos)
 
         setLoading(true)
         const Photo = {
             title: newImage.title,
             description: newImage.description,
             userId: activeUser.id,
-            url: photos
+            photoUrl: photos,
+            albumId: parseInt(props.match.params.albumId)
         }
-        PhotosManager.addNewPhoto(Photo).then(() => props.history.push(`/albums`))
+        PhotosManager.addNewPhoto(Photo).then(() => props.history.push(`/albums/${props.match.params.albumId}`))
     }
 
     const uploadImage = async e => {
@@ -54,7 +56,7 @@ const Cloudinary = (props) => {
     }
 
     useEffect(() => {
-        getPhotos()
+        // getPhotos()
     }, [])
 
     return (
@@ -73,7 +75,7 @@ const Cloudinary = (props) => {
                     onChange={uploadImage}
                 />
             </form>
-            <button onClick={postNewImage}>Post Image</button>
+            <button disabled={loading} onClick={postNewImage}>Post Image</button>
             <div>
                 <img src={photos} style={{width: '300px'}} />
                 
