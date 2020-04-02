@@ -18,7 +18,8 @@ const Login = props => {
             window.alert("Please input a username and email")
         } else {
             LoginManager.getAll().then(users => {
-                if (users.find(user => user.username === credentials.username) && (users.find(user => user.email === credentials.email))) {
+                if (users.find(user => user.username === credentials.username &&  user.email === credentials.email)) {
+                    
                     const user = users.find(user => user.username === credentials.username)
 
                     sessionStorage.setItem(
