@@ -6,7 +6,7 @@ import LoginManager from '../../modules/LoginManager'
 import Login from './Login'
 
 const Register = props => {
-    const [credentials, setCredentials] = useState({ username: "", email: "" })
+    const [credentials, setCredentials] = useState({ firstName: "", lastName: "", username: "", email: "" })
     const [isLoading, setIsLoading] = useState(false)
 
     const handleFieldChange = evt => {
@@ -26,6 +26,8 @@ const Register = props => {
                     window.alert("This username or email already exists.")
                 } else {
                     const newUser = {
+                        firstName: credentials.firstName,
+                        lastName: credentials.lastName,
                         username: credentials.username,
                         email: credentials.email
                     }
@@ -57,6 +59,14 @@ const Register = props => {
                         <fieldset>
                             <h2>Register</h2>
                             <div>
+                                <Label htmlFor="inputFirstName">First Name</Label>
+                                <Input onChange={handleFieldChange} type="firstName" id="firstName" placeholder="First Name"
+                                required="" autoFocus=""/>
+
+                                <Label htmlFor="inputUsername">Last Name</Label>
+                                <Input onChange={handleFieldChange} type="lastName" id="lastName" placeholder="Last Name"
+                                required="" autoFocus=""/>
+
                                 <Label htmlFor="inputUsername">Username</Label>
                                 <Input onChange={handleFieldChange} type="username" id="username" placeholder="Username"
                                 required="" autoFocus=""/>
@@ -65,7 +75,7 @@ const Register = props => {
                                 <Input onChange={handleFieldChange} type="email" id="email" placeholder="Email"
                                 required="" autoFocus=""/>
                             </div>
-                            <Button color="success" type="submit" onClick={handleRegister}>Sign In</Button>
+                            <Button color="success" type="submit" onClick={handleRegister}>Register</Button>
                         </fieldset>
                     </form>
                 </Card>

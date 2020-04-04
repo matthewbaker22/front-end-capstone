@@ -12,7 +12,6 @@ const PhotoList = props => {
             setPhotos(photosFromAPI)
         })
     }
-
     
 
     useEffect(() => {
@@ -21,6 +20,9 @@ const PhotoList = props => {
 
     return (
         <div>
+            <div>
+                <p>{props.match.params.name}</p>
+            </div>
             <div>
                 <Button onClick={() => {
                     props.history.push(`/albums/${props.match.params.albumId}/photo/new`)

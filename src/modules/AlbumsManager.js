@@ -10,13 +10,13 @@ export default {
     getCoverPhoto(photoId) {
         return fetch(`${url}/photos/${photoId}`).then(resp => resp.json())
     },
-    post(newArticle) {
+    post(newAlbum) {
         return fetch(`${url}/albums`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newArticle)
+            body: JSON.stringify(newAlbum)
         }).then(resp => resp.json())
     },
     delete(id) {

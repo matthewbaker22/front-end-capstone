@@ -9,6 +9,7 @@ import PhotoList from './albums/photos/PhotoList'
 import Cloudinary from './albums/photos/PhotoCloudinary'
 import AlbumEditForm from './albums/AlbumEditForm'
 import PhotoEditForm from './albums/photos/PhotoEditForm'
+import FriendList from './friends/FriendsList'
 
 //Login & Register
 import Login from './auth/Login'
@@ -45,7 +46,9 @@ const ApplicationView = (props) => {
             <Route path="/albums/:albumId(\d+)/photo/new" render={props => {
                 return <Cloudinary {...props}/>
             }}/>
-
+            <Route exact path="/friends" render={props => {
+                return <FriendList {...props}/>
+            }}/>
         </>
     )
 }

@@ -50,6 +50,11 @@ const NavBar = props => {
                             </Link>
                         </li>
                         <li>
+                            <Link className="nav-link" to="/friends">
+                                Friends
+                            </Link>
+                        </li>
+                        <li>
                             <Link className="nav-link" onClick={clearUser} to="/">
                                 Log Out
                             </Link>
