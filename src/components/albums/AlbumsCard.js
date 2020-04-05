@@ -12,7 +12,6 @@ const AlbumsCard = (props) => {
         if (props.album.photoId !== undefined && props.album.photoId !== null) {
              AlbumsManager.getCoverPhoto(props.album.photoId).then(coverPhotoFromAPI => {
                      setCoverPhoto(coverPhotoFromAPI.photoUrl)
-                     console.log(coverPhotoFromAPI)
                 })
         }
     }

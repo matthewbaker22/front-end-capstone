@@ -50,6 +50,11 @@ const NavBar = props => {
                             </Link>
                         </li>
                         <li>
+                            <Link className="nav-link" to="/shared-albums">
+                                Shared Albums
+                            </Link>
+                        </li>
+                        <li>
                             <Link className="nav-link" to="/friends">
                                 Friends
                             </Link>

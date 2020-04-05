@@ -31,6 +31,7 @@ const FriendList = (props) => {
                 <Button onClick={checkUsers}>Find Friend!</Button>
                 <FriendsCard 
                     foundFriends={foundFriends}
+                    {...props}
                 />
             </div>
         )

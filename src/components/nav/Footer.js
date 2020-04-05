@@ -8,8 +8,8 @@ const Footer = () => {
             <footer>
                 <div>
                     <ul>
-                        <li className="footer-link">GitHub</li>
-                        <li className="footer-link">LinkedIn</li>
+                        <li className="footer-link"><h3>Scrappy</h3></li>
+                        <li className="footer-link"><p>A ScrapBooking App</p></li>
                     </ul>
                 </div>
             </footer>

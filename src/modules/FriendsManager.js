@@ -9,5 +9,8 @@ export default {
             },
             body: JSON.stringify(newFriend)
         }).then(resp => resp.json())
+    },
+    getFriends() {
+        return fetch(`${url}/friends`).then(resp => resp.json())
     }
 }

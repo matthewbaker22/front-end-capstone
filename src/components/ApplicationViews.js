@@ -10,6 +10,8 @@ import Cloudinary from './albums/photos/PhotoCloudinary'
 import AlbumEditForm from './albums/AlbumEditForm'
 import PhotoEditForm from './albums/photos/PhotoEditForm'
 import FriendList from './friends/FriendsList'
+import AllFriends from './friends/AllFriends'
+import SharedAlbumsList from './sharedalbums/SharedAlbumsList'
 
 //Login & Register
 import Login from './auth/Login'
@@ -47,7 +49,13 @@ const ApplicationView = (props) => {
                 return <Cloudinary {...props}/>
             }}/>
             <Route exact path="/friends" render={props => {
+                return <AllFriends {...props}/>
+            }}/>
+            <Route path="/friends/add-friend" render={props => {
                 return <FriendList {...props}/>
+            }}/>
+            <Route path="/shared-albums" render={props => {
+                return <SharedAlbumsList {...props}/>
             }}/>
         </>
     )
