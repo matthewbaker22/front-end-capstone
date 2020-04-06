@@ -9,5 +9,8 @@ export default {
     },
     getFriends(friendId) {
         return fetch(`${url}/users/${friendId}`).then(resp => resp.json())
+    },
+    getUser(userId) {
+        return fetch(`${url}/users/${userId}`).then(resp => resp.json())
     }
 }

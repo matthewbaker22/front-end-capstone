@@ -21,16 +21,15 @@ const AlbumList = (props) => {
         })
     }
 
-    
-
-    
-
     useEffect(() => {
         getAlbums()
     }, [])
 
     return (
         <>
+            <div>
+                <h1>Albums</h1>
+            </div>
             <section>
                 <Button color="primary" type="button" className="btn" onClick={() => {
                     props.history.push("albums/new")

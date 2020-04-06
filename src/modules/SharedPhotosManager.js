@@ -12,5 +12,14 @@ export default {
             },
             body: JSON.stringify(newPhoto)
         }).then(resp => resp.json())
+    },
+    checkIfCoverPhoto(photoId) {
+        return fetch(`${url}/sharedAlbums?photoId=${photoId}`)
+        .then(resp => resp.json())
+    },
+    delete(id) {
+        return fetch(`${url}/sharedPhotos/${id}`, {
+            method: "DELETE"
+        }).then(resp => resp.json())
     }
 }

@@ -18,17 +18,20 @@ const SharedAlbumsList = (props) => {
     }, [])
 
     return (
-        <div className="album-flex">
+        <div>
+            <div>
+                <h1>Shared Albums</h1>
+            </div>
+            <div className="album-flex">
                 {sharedAlbums.map(sharedAlbum => (
-                    
                         <SharedAlbumsCard 
                             key={sharedAlbum.id}
                             sharedAlbum={sharedAlbum}
                             {...props}
                         />
-                    
                 ))}
             </div> 
+        </div>
     )
 }
 

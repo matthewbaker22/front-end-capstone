@@ -1,0 +1,12 @@
+.photo-card {
+    width: 30%;
+    align-items: center;
+}
+
+.photo-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 15px;
+    justify-content: space-around;
+}

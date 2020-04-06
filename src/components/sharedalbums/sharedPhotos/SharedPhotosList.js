@@ -28,7 +28,7 @@ const SharedPhotosList = props => {
                 }}>Back to Shared Albums
                 </Button>
             </div>
-            <div>
+            <div className="photo-flex">
                 {photos.map(photo => (
                     <SharedPhotosCard
                         key={photo.id}
