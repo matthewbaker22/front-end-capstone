@@ -8,11 +8,8 @@ const SharedAlbumsList = (props) => {
 
     const getSharedAlbums = () => {
         return SharedAlbumsManager.getAll().then(sharedAlbumsFromAPI => {
-            console.log(sharedAlbumsFromAPI)
             const mySharedAlbums = sharedAlbumsFromAPI.filter(sharedAlbumFromAPI => sharedAlbumFromAPI.friend.friendId === parseInt(sessionStorage.getItem("Active Id")) || sharedAlbumFromAPI.friend.userId === parseInt(sessionStorage.getItem("Active Id")))
-            console.log(parseInt(sessionStorage.getItem("Active Id")))
             setSharedAlbums(mySharedAlbums)
-            console.log(sharedAlbums)
         })
     }
 

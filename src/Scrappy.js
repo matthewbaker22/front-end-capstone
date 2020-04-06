@@ -9,7 +9,7 @@ function Scrappy() {
     <>
       <NavBar />
       <ApplicationView />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

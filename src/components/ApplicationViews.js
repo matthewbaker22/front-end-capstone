@@ -12,6 +12,8 @@ import PhotoEditForm from './albums/photos/PhotoEditForm'
 import FriendList from './friends/FriendsList'
 import AllFriends from './friends/AllFriends'
 import SharedAlbumsList from './sharedalbums/SharedAlbumsList'
+import SharedPhotosList from './sharedalbums/sharedPhotos/SharedPhotosList'
+import SharedPhotosCloudinary from './sharedalbums/sharedPhotos/SharedPhotoCloudinary'
 
 //Login & Register
 import Login from './auth/Login'
@@ -54,8 +56,14 @@ const ApplicationView = (props) => {
             <Route path="/friends/add-friend" render={props => {
                 return <FriendList {...props}/>
             }}/>
-            <Route path="/shared-albums" render={props => {
+            <Route exact path="/shared-albums" render={props => {
                 return <SharedAlbumsList {...props}/>
+            }}/>
+            <Route exact path="/shared-albums/:sharedAlbumId(\d+)" render={props => {
+                return <SharedPhotosList {...props}/>
+            }}/>
+            <Route path="/shared-albums/:sharedAlbumId(\d+)/photo/new" render={props => {
+                return <SharedPhotosCloudinary {...props}/>
             }}/>
         </>
     )
